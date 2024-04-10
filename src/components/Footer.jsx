@@ -12,6 +12,7 @@ const Footer = () => {
           <i class="fa-brands fa-instagram text-lg"></i>
         </a>
       </div>
+      <p className="text-sm font-bold text-gray-500">Design by Adrey Locaylocay</p>
       <p className="text-sm text-gray-500"> <i class="fa-regular fa-copyright"></i>2024 Aqua Harmony. All rights reserved</p>
     </footer>
   );

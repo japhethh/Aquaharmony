@@ -10,7 +10,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-[#ffffff] ">
+    <section className="bg-[#ffffff] px-5">
       <div className="container">
         <h1 className="pg-header text-2xl font-bold py-8 uppercase">
           WHAT CUSTOMERS SAY ABOUT US

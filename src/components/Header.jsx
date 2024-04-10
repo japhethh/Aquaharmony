@@ -4,6 +4,7 @@ import IconLogo from "../images/iconlogo.jpeg";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false)
 
   // Conditional class application for the menu
   const menuClasses = `md:hidden ${
@@ -53,7 +54,7 @@ const Header = () => {
                 >
                   Products
                 </NavLink>
-                <NavLink
+                {/* <NavLink
                   to="posts"
                   className={(navData) =>
                     navData.isActive
@@ -62,17 +63,17 @@ const Header = () => {
                   }
                 >
                   Posts
-                </NavLink>
+                </NavLink> */}
               </div>
             </div>
           </div>
 
           {/* right header */}
           <div className="flex justify-between items-center gap-4 cursor-pointer ">
-            <div className="flex flex-row rounded-full px-3 gap-3 items-center hover:bg-gray-200 bg-gray-100 py-2 max-w-[200px] ">
-              <i class="fa-solid fa-magnifying-glass"></i>
+            <div className="flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 max-w-[200px] ">
+              <i class="fa-solid fa-magnifying-glass w-5 h-5 max-md:p-5 text-lg rounded-full flex justify-center items-center" onClick={() => setOpenSearch(true)}></i>
               <input
-                className="outline-none bg-transparent text-lg w-full "
+                className={`outline-none bg-transparent text-lg w-full  ${openSearch ? "block": "hidden"}`}
                 type="text"
                 placeholder="Search"
               />
@@ -84,11 +85,11 @@ const Header = () => {
                   navData.isActive ? "text-[#6246ea]" : ""
                 }
               >
-                <i class="fa-regular fa-heart text-xl h-10 w-10 flex justify-center items-center p-3 hover:bg-slate-100 rounded-full"></i>
+                <i class="fa-regular fa-heart text-xl h-10 w-10 flex justify-center items-center p-3 hover:bg-slate-100 rounded-full" ></i>
               </NavLink>
             </div>
 
-            <div className="md:block hidden z-50">
+            <div className="md:block  z-10">
             <NavLink
                 className={(navData) =>
                   navData.isActive ? "text-[#6246ea]" : ""
@@ -144,7 +145,7 @@ const Header = () => {
           >
             Products
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="posts"
             className={(navData) =>
               navData.isActive ? "text-[#6246ea]" : "text-white"
@@ -152,7 +153,7 @@ const Header = () => {
             onClick={() => setMenu(false)}
           >
             Posts
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
     </header>
