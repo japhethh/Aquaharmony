@@ -109,7 +109,7 @@ const Header = () => {
               <i
                 className={`${
                   menu ? "text-white" : "text-black"
-                } fa-solid fa-bars  z-20 `}
+                } fa-solid fa-bars text-2xl z-20 `}
                 onClick={() => setMenu(!menu)}
               ></i>
             </div>
