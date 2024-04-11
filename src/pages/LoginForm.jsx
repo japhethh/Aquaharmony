@@ -41,7 +41,7 @@ const LoginForm = () => {
 
         <div className="flex justify-between max-lg:justify-center items-center gap-2 ">
           <img className="w-10 h-10 max-lg:hidden " src={IconLogo} alt="" />
-          <h1 className="md:text-[38px] font-bold text-[25px] ">
+          <h1 className="md:text-[38px] font-bold text-[25px] max-md:py-7  ">
             Aqua Harmony
           </h1>
         </div>
