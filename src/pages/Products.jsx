@@ -4,7 +4,7 @@ import { PRODUCTS } from "../data";
 
 const Products = ({ heading }) => {
   return (
-    <main className="bg-white leading-relaxed md:px-2 px-4">
+    <main className="bg-white leading-relaxed md:px-2 container">
       <div className="pg-header">
         <div className="container flex justify-between">
           <div className="">
@@ -35,6 +35,7 @@ const Products = ({ heading }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
           {PRODUCTS.map((product) => (
             <div key={product.id}>
+              
               <Link
                 to={`/products/${product.id}`}
                 className="product flex flex-col shadow-xl rounded-lg border-[1px] border-slate-200"
@@ -54,9 +55,9 @@ const Products = ({ heading }) => {
                   {/* <p className=" product_detail text-sm text-center pb-2 text-gray-600">
                     {product.detail}
                   </p> */}
-                  <div className="flex items-center pt-2">
+                  <div className="flex items-center pt-2 text-semibold text-[#6246ea]">
                     ₱
-                    <span className="text-md font-semibold  text-black">
+                    <span className="text-md font-semibold  ">
                       {product.price}
                     </span>
                   </div>
