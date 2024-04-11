@@ -1,4 +1,5 @@
 import React from "react";
+import image1 from '../images/1.png'
 
 const BagItem = () => {
   return (
@@ -12,7 +13,7 @@ const BagItem = () => {
             <div className="card-image  ">
               <img
                 className="w-[200px] h-auto object-contain"
-                src="http://localhost:5173/src/images/1.png"
+                src={image1}
                 alt=""
               />
             </div>
