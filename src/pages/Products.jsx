@@ -12,7 +12,7 @@ const Products = ({ heading }) => {
           </div>
           <div className="">
             {/* Second breadcrumb */}
-            <nav className="w-full rounded-md">
+            {/* <nav className="w-full rounded-md">
               <ol className="list-reset flex">
                 <li>
                   <Link
@@ -27,7 +27,7 @@ const Products = ({ heading }) => {
                 </li>
                 <li className="text-neutral-400">products</li>
               </ol>
-            </nav>
+            </nav> */}
           </div>
         </div>
       </div>

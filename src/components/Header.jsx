@@ -70,7 +70,7 @@ const Header = () => {
 
           {/* right header */}
           <div className="flex justify-between items-center gap-4 cursor-pointer ">
-            <div className="flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 max-w-[200px] ">
+            <div className="flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 max-w-[150px] ">
               <i class="fa-solid fa-magnifying-glass w-5 h-5 max-md:p-5 text-lg rounded-full flex justify-center items-center" onClick={() => setOpenSearch(true)}></i>
               <input
                 className={`outline-none bg-transparent text-lg w-full  ${openSearch ? "block": "hidden"}`}

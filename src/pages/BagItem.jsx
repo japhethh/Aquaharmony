@@ -61,7 +61,7 @@ const BagItem = () => {
         </div>
         <div className=" border-t-[1px] border-gray-200 py-7 flex gap-4">
           <div>
-            <img className="max-w-[200px] " src="http://localhost:5173/src/images/1.png" alt="" />
+            <img className="max-w-[200px] " src={image1} alt="" />
           </div>
           <div className="flex flex-col justify-start max-md:w-full">
             <div className="flex justify-between max-sm:flex-col    flex-row-reverse">
