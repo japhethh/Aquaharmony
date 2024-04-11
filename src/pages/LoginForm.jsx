@@ -31,7 +31,7 @@ const LoginForm = () => {
             <p>Forgot Password?</p>
             {/* divided */}
             <Link
-              className=" mx-auto bg-violet-100 rounded-full text-[#6246EA] font-bold py-3 px-6"
+              className=" mx-auto bg-gray-100 rounded-full text-[#6246EA] font-semibold py-3 px-7"
               to="../register"
             >
               Sign up
