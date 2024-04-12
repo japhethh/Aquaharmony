@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { PRODUCTS } from "../data.jsx";
 
 const SingleProduct = () => {
