@@ -44,7 +44,7 @@ const Products = ({ heading }) => {
               >
                 <div className="product_image h-[200px]  flex  text-center bg-gray-200">
                   <img
-                    className="object-cover w-full max-w-full max-h-full rounded-t-lg"
+                    className="object-cover w-full max-w-full max-h-full md:rounded-t-lg"
                     src={product.image}
                     alt=""
                   />
