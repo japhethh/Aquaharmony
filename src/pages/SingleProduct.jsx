@@ -22,6 +22,7 @@ const SingleProduct = () => {
               {/* Second breadcrumb */}
               <nav className="w-full rounded-md">
                 <ol className="list-reset flex">
+                  hello world
                   <li>
                     <Link
                       to="/"

@@ -4,12 +4,14 @@ import { PRODUCTS } from "../data";
 
 const Products = ({ heading }) => {
   return (
-    <main className="bg-white leading-relaxed md:px-2 container">
-      <div className="pg-header">
-        <div className="container flex justify-between">
-          <div className="">
+    <main className="bg-white leading-relaxed md:px-2 md:container">
+      <div className="">
+
+        <div className=" flex justify-between">
+          <div className="container">
             <h2>{heading} Products</h2>
           </div>
+
           <div className="">
             {/* Second breadcrumb */}
             {/* <nav className="w-full rounded-md">
@@ -31,8 +33,8 @@ const Products = ({ heading }) => {
           </div>
         </div>
       </div>
-      <div className="container content bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
+      <div className=" content bg-white">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
           {PRODUCTS.map((product) => (
             <div key={product.id}>
               
@@ -46,11 +48,14 @@ const Products = ({ heading }) => {
                     src={product.image}
                     alt=""
                   />
+
                 </div>
+
                 <div className="product_body flex flex-col px-4 py-4 text-md  ">
                   <h3 className="product_text text-md font-semibold text-black">
                     {product.name}
                   </h3>
+
                   <p className="text-gray-500">{product.category}</p>
                   {/* <p className=" product_detail text-sm text-center pb-2 text-gray-600">
                     {product.detail}
@@ -61,6 +66,7 @@ const Products = ({ heading }) => {
                       {product.price}
                     </span>
                   </div>
+
                 </div>
               </Link>
             </div>
