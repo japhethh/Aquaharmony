@@ -42,7 +42,7 @@ const Products = ({ heading }) => {
                 to={`/products/${product.id}`}
                 className="product flex flex-col shadow-xl rounded-lg border-[1px] border-slate-200"
               >
-                <div className="product_image h-[200px]  flex items-center text-center bg-gray-200">
+                <div className="product_image h-[200px]  flex  text-center bg-gray-200">
                   <img
                     className="object-cover w-full max-w-full max-h-full rounded-t-lg"
                     src={product.image}
