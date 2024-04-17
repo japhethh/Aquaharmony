@@ -9,6 +9,8 @@ const BagItem = () => {
   const [total, setTotal] = useState(0);
   const [stateRemove,setStateRemove] = useState(-1);
   const shippingThreshold = 30;
+  const [increment, setIncrement] = useState(0);
+  const [decrement, setDecrement] = useState(0);
 
   useEffect(() => {
     const results = localStorage.getItem("cart");
@@ -33,8 +35,9 @@ const BagItem = () => {
   }, [parsedData]);
   // end useEffect
 
+
+
   const handleRemove = () => {
-    
     const updatedCart = parsedData.filter((_, i) => i !== stateRemove);
     console.log(updatedCart);
     setParsedData(updatedCart);
@@ -46,6 +49,8 @@ const BagItem = () => {
     document.getElementById("my_modal_1").showModal()
     setStateRemove(index)
   };
+
+
 
   return (
     <section className="container leading-loose text-[#111111]">
@@ -76,6 +81,12 @@ const BagItem = () => {
                       <h3>Shower</h3>
                     </div>
 
+                    <div className="flex justify-between items-center w-[100px]">
+                      <button className="rounded-sm  w-7 h-7 bg-[#111111] text-white">-</button>
+                      <input className="w-7 h-7 ring-1 ring-[#111111] text-center"  type="text" />
+                      <button className="rounded-sm  bg-[#111111] text-white w-7 h-7">+</button>
+                    </div>
+
                     <div className="flex justify-start gap-4 items-start py-5 ">
                       <IoIosHeartEmpty className="text-2xl cursor-pointer" />
                       <IoTrashOutline 
@@ -88,6 +99,7 @@ const BagItem = () => {
               </div>
             ))}
             {/* end */}
+
           </div>
 
           <div className="w-1/3 flex-1">
@@ -105,7 +117,7 @@ const BagItem = () => {
                 <h1>Total</h1>
                 <h1>{formatCurrency(total)}</h1>
               </div>
-              <button className="max-w-[300px] min-w-[300px] mx-auto py-3 px-8 bg-[#6246ea] hover:opacity-80 rounded-full text-white font-semibold">
+              <button className="max-w-[300px] min-w-[300px] mx-auto py-3 px-8 bg-[#111111] hover:opacity-80 rounded-full text-white font-semibold">
                 Check Out
               </button>
             </div>

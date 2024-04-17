@@ -87,7 +87,7 @@ const Header = () => {
               <NavLink
                 to="/Aquaharmony/favorites"
                 className={(navData) =>
-                  navData.isActive ? "text-[#6246ea]" : ""
+                  navData.isActive ? "text-[#111111]" : ""
                 }
               >
                 <i className="fa-regular fa-heart text-xl h-10 w-10 flex justify-center items-center p-3 hover:bg-slate-100 rounded-full"></i>
@@ -96,7 +96,7 @@ const Header = () => {
             <div className="md:block z-10 relative">
               <NavLink
                 className={(navData) =>
-                  navData.isActive ? "text-[#6246ea]" : ""
+                  navData.isActive ? "text-[#111111]" : ""
                 }
                 to="/Aquaharmony/cart"
               >
@@ -109,7 +109,7 @@ const Header = () => {
             <NavLink
               to="/Aquaharmony/login"
               className={(navData) =>
-                navData.isActive ? "text-[#6246ea]" : ""
+                navData.isActive ? "text-[#111111]" : ""
               }
             >
               Login

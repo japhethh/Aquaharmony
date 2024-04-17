@@ -62,7 +62,7 @@ const Products = ({ heading }) => {
                   {/* <p className=" product_detail text-sm text-center pb-2 text-gray-600">
                     {product.detail}
                   </p> */}
-                  <div className="flex items-center pt-2 text-semibold text-[#6246ea]">
+                  <div className="flex items-center pt-2 text-semibold text-[#111111]">
                    
                     <span className="text-md font-semibold  ">
                       {formatCurrency(product.price)}
