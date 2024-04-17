@@ -1,18 +1,35 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { PRODUCTS } from "../data.jsx";
 
 const SingleProduct = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
+  const [data, setData] = useState([]);
 
-  // get product
+  // Get the product
   const retrieveProduct = PRODUCTS.find(
     (product) => product.id === parseInt(productId)
   );
 
-  const { id, name, price, image, detail, category } = retrieveProduct;
-  console.log("product id ", productId);
-  console.log("product id ", retrieveProduct);
+  // Fetch data from localStorage on component mount
+  useEffect(() => {
+    const datas = localStorage.getItem("cart");
+
+    if (datas) {
+      setData(JSON.parse(datas));
+    }
+  }, []);
+
+  // Handle adding product to the cart
+  const handleData = () => {
+    const newData = [...data, retrieveProduct];
+    localStorage.setItem("cart", JSON.stringify(newData));
+    setData(newData);
+  };
+
+  const { name, price, image, detail, category } = retrieveProduct;
+
   return (
     <main className="bg-white min-h-screen leading-relaxed px-5">
       <div className="md:block hidden">
@@ -34,7 +51,7 @@ const SingleProduct = () => {
                     <span className="mx-2 text-neutral-400">/</span>
                   </li>
                   <li className="text-neutral-400">
-                    <Link to="/products">products</Link>
+                    <Link to="/products">Products</Link>
                   </li>
                   <span className="mx-2 text-neutral-400">/</span>
                   <li className="text-neutral-400">{name}</li>
@@ -43,37 +60,40 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
-        <div className="container flex justify-between items-start py-8 ">
+        <div className="container flex justify-between items-start py-8">
           {/* Left */}
-          <div className="w-2/3 flex-1 ">
-            <div className="flex justify-end  ">
+          <div className="w-2/3 flex-1">
+            <div className="flex justify-end">
               <img
                 src={image}
                 className="w-[400px] h-auto  rounded-md object-contain"
+                alt={name}
               />
             </div>
           </div>
           {/* Right */}
-          <div className="w-1/3 flex-1 ">
+          <div className="w-1/3 flex-1">
             <div className="w-[350px] mx-auto">
-              <div className=" ">
-                <h2 className="md:text-2xl mt-4 text-md text-black font-semibold">{name}</h2>
+              <div>
+                <h2 className="md:text-2xl mt-4 text-md text-black font-semibold">
+                  {name}
+                </h2>
                 <p className="text-black font-medium">{category}</p>
-                <p className="price mb-6 text-[#6246ea] pt-1 text-lg ">
+                <p className="price mb-6 text-[#6246ea] pt-1 text-lg">
                   ₱{price}
                 </p>
               </div>
 
-              <div className=" flex flex-col   gap-4 my-4">
+              <div className="flex flex-col gap-4 my-4">
                 <button
-                  className="rounded-full  w-full mx-auto py-4  px-7 text-white bg-[#6246ea] text-lg hover:opacity-80"
-                  onClick={() => navigate(-1)}
+                  className="rounded-full w-full mx-auto py-4 px-7 text-white bg-[#6246ea] text-lg hover:opacity-80"
+                  onClick={handleData}
                 >
                   Add Bag
                 </button>
                 <button className="rounded-full w-full mx-auto py-4 px-7 bg-white border-[2px] border-violet-200 text-[#6246ea] text-lg flex gap-2 justify-center items-center hover:border-[#6246ea]">
                   <span>Favorite</span>
-                  <i class="fa-regular fa-heart"></i>
+                  <i className="fa-regular fa-heart"></i>
                 </button>
               </div>
               <div className="py-8">
@@ -85,37 +105,31 @@ const SingleProduct = () => {
       </div>
 
       {/* Mobile */}
-      <div className=" md:hidden block" >
-        <div className="flex flex-col mt-12 px-4  font-semibold ">
+      <div className="md:hidden block">
+        <div className="flex flex-col mt-12 px-4 font-semibold">
           <h1 className="text-2xl">{name}</h1>
           <h1 className="text-md">{category}</h1>
           <h1 className="text-lg py-4 text-[#6246ea]">₱{price}</h1>
         </div>
         <div>
-          <img 
-            src={image}
-            class="mb-5 "
-            alt=""
-          />
+          <img src={image} className="mb-5" alt={name} />
         </div>
-        <div className=" flex flex-col   gap-4 px-4 ">
+        <div className="flex flex-col gap-4 px-4">
           <button
-            className="rounded-full  w-full mx-auto py-4  px-7 text-white bg-[#6246ea] text-lg hover:opacity-80"
+            className="rounded-full w-full mx-auto py-4 px-7 text-white bg-[#6246ea] text-lg hover:opacity-80"
             onClick={() => navigate(-1)}
           >
             Add Bag
           </button>
           <button className="rounded-full w-full mx-auto py-4 px-7 bg-white border-[2px] border-violet-200 text-[#6246ea] text-lg flex gap-2 justify-center items-center hover:border-[#6246ea]">
             <span>Favorite</span>
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
           </button>
         </div>
-        <div className="py-8 ">
+        <div className="py-8">
           <p className="text-md text-[#111111]">{detail}</p>
         </div>
       </div>
-      {/* end */}
-
     </main>
   );
 };

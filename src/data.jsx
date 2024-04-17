@@ -18,7 +18,7 @@ const PRODUCTS = [
   {
     id: 1,
     name: "AquaSound 5000",
-    price: "20,000",
+    price: "20000",
     category:"Shower",
     image: productImage1,
     detail:
@@ -27,7 +27,7 @@ const PRODUCTS = [
   {
     id: 2,
     name: "Sonicsplash Pro",
-    price: "25,000",
+    price: "25000",
     category:"Shower",
     image: productImage2,
     detail:
@@ -36,7 +36,7 @@ const PRODUCTS = [
   {
     id: 3,
     name: "ShowerBeats Elite",
-    price: "18,000",
+    price: "18000",
     category:"Shower",
     image: productImage3,
     detail:
@@ -45,7 +45,7 @@ const PRODUCTS = [
   {
     id: 4,
     name: "AquaTunes 3000",
-    price: "22,000",
+    price: "22000",
     category:"Shower",
     image: productImage4,
     detail:
@@ -54,7 +54,7 @@ const PRODUCTS = [
   {
     id: 5,
     name: "HydroSound 6000",
-    price: "30,000",
+    price: "30000",
     category:"Shower",
     image: productImage5,
     detail: "Experience crystal-clear sound while you shower, wirelessly...",
@@ -62,7 +62,7 @@ const PRODUCTS = [
   {
     id: 6,
     name: "FloatSound Pro",
-    price: "28,000",
+    price: "28000",
     category:"Shower",
     image: productImage6,
     detail:
@@ -71,7 +71,7 @@ const PRODUCTS = [
   {
     id: 7,
     name: "MoodWave 8000",
-    price: "35,000",
+    price: "35000",
     category:"Shower",
     image: productImage7,
     detail:
@@ -80,7 +80,7 @@ const PRODUCTS = [
   {
     id: 8,
     name: "SubmergeSound 7000",
-    price: "40,000",
+    price: "40000",
     category:"Shower",
     image: productImage8,
     detail:
@@ -89,7 +89,7 @@ const PRODUCTS = [
   {
     id: 9,
     name: "ShowerWave FM",
-    price: "32,000",
+    price: "32000",
     category:"Shower",
     image: productImage9,
     detail:
@@ -98,7 +98,7 @@ const PRODUCTS = [
   {
     id: 10,
     name: "HandsFree Harmony",
-    price: "27,000",
+    price: "27000",
     category:"Shower",
     image: productImage10,
     detail:
@@ -107,7 +107,7 @@ const PRODUCTS = [
   {
     id: 11,
     name: "SplashGuard 9000",
-    price: "23,000",
+    price: "23000",
     category:"Shower",
     image: productImage11,
     detail:
@@ -116,7 +116,7 @@ const PRODUCTS = [
   {
     id: 12,
     name: "StereoShower Duo",
-    price: "50,000",
+    price: "50000",
     category:"Shower",
     image: productImage12,
     detail:
@@ -125,7 +125,7 @@ const PRODUCTS = [
   {
     id: 13,
     name: "TimeTunes Shower",
-    price: "38,000",
+    price: "38000",
     category:"Shower",
     image: productImage13,
     detail:
@@ -134,7 +134,7 @@ const PRODUCTS = [
   {
     id: 14,
     name: "RuggedAudio Xtreme",
-    price: "45,000",
+    price: "45000",
     category:"Shower",
     image: productImage14,
     detail:
@@ -143,7 +143,7 @@ const PRODUCTS = [
   {
     id: 15,
     name: "MicroBeats Shower",
-    price: "15,000",
+    price: "15000",
     category:"Shower",
     image: productImage15,
     detail:

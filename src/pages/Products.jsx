@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import formatCurrency from "../utilities/formatCurrency";
+
 import { PRODUCTS } from "../data";
 
 const Products = ({ heading }) => {
@@ -61,9 +63,9 @@ const Products = ({ heading }) => {
                     {product.detail}
                   </p> */}
                   <div className="flex items-center pt-2 text-semibold text-[#6246ea]">
-                    ₱
+                   
                     <span className="text-md font-semibold  ">
-                      {product.price}
+                      {formatCurrency(product.price)}
                     </span>
                   </div>
 
