@@ -28,7 +28,7 @@ const SingleProduct = () => {
     setData(newData);
 
     window.location.reload();
-    navigate("/Aquaharmony//products");
+    navigate("/Aquaharmony/products");
   };
 
   const { name, price, image, detail, category } = retrieveProduct;

@@ -27,7 +27,7 @@ const Header = () => {
       <div className="container">
         <div className="flex justify-between items-center bg-[#FFFFFF] text-[#111111] font-normal">
           <div className="logo">
-            <Link to="/" className="brand flex items-center gap-2">
+            <Link to="/Aquaharmony/home" className="brand flex items-center gap-2">
               <img className="w-10 h-10" src={IconLogo} alt="" />
               <h2 className="max-lg:hidden ">Aqua Harmony</h2>
             </Link>
@@ -36,7 +36,7 @@ const Header = () => {
             <div className="hidden md:block">
               <div className="nav nav-pills py-4 flex justify-between items-center gap-6 leading-6 text-lg">
                 <NavLink
-                  to="/Aquaharmony/"
+                  to="/Aquaharmony/home"
                   className={(navData) =>
                     navData.isActive
                       ? " border-b-[2px] border-black py-4"
@@ -69,7 +69,7 @@ const Header = () => {
             </div>
           </div>
           <div className="flex justify-between items-center gap-4 cursor-pointer ">
-            <div className="flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 pr-2 max-md:w-[120px] max-w-[200px] ">
+            <div className="flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 pr-2 max-md:w-[120px] md:w-[200px] ">
               <i
                 className="fa-solid fa-magnifying-glass w-5 h-5 max-md:p-5 text-lg rounded-full flex justify-center items-center"
                 onClick={() => setOpenSearch(true)}

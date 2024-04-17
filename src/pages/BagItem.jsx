@@ -7,45 +7,45 @@ const BagItem = () => {
   const [parsedData, setParsedData] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
+  const [stateRemove,setStateRemove] = useState(-1);
   const shippingThreshold = 30;
-
 
   useEffect(() => {
     const results = localStorage.getItem("cart");
     const parsedDatas = JSON.parse(results);
     setParsedData(parsedDatas || []);
-  },[]);
+  }, []);
 
   // UseEffect
   useEffect(() => {
     let subTotal = 0;
-    // Iterating loop
     parsedData.forEach((item) => {
       subTotal += parseFloat(item.price);
     });
     setSubtotal(subTotal);
-    setTotal(subTotal); // Initially set total to subtotal
+    setTotal(subTotal);
 
-    // Check if subtotal exceeds shipping threshold for free shipping
     if (subTotal >= shippingThreshold) {
-      // If subtotal exceeds the threshold, subtract shipping cost from total
-      setTotal(subTotal); // Free shipping
+      setTotal(subTotal);
     } else {
-      // If subtotal doesn't exceed the threshold, add shipping cost to total
       setTotal(subTotal);
     }
   }, [parsedData]);
   // end useEffect
 
-
-
-  const handleRemove = (index) => {
-    const updatedCart = parsedData.filter((_,i) => i !== index)
-    console.log(updatedCart)
+  const handleRemove = () => {
+    
+    const updatedCart = parsedData.filter((_, i) => i !== stateRemove);
+    console.log(updatedCart);
     setParsedData(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart)); 
     window.location.reload();
-}
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const handleItemRemove = (index) => {
+    document.getElementById("my_modal_1").showModal()
+    setStateRemove(index)
+  };
 
   return (
     <section className="container leading-loose text-[#111111]">
@@ -53,7 +53,7 @@ const BagItem = () => {
         <div className="flex  min-h-screen gap-4 ">
           {/* Looping */}
           <div className="w-2/3 flex-1 overflow-y-scroll h-[500px] cursor-pointer ">
-            {parsedData.map((item,index) => (
+            {parsedData.map((item, index) => (
               <div key={index}>
                 <h2>{item.category}</h2>
 
@@ -77,8 +77,11 @@ const BagItem = () => {
                     </div>
 
                     <div className="flex justify-start gap-4 items-start py-5 ">
-                      <IoIosHeartEmpty className="text-2xl cursor-pointer"  />
-                      <IoTrashOutline className="text-2xl cursor-pointer" onClick={() => handleRemove(index)} />
+                      <IoIosHeartEmpty className="text-2xl cursor-pointer" />
+                      <IoTrashOutline 
+                        className="text-2xl cursor-pointer "
+                        onClick={() => handleItemRemove(index)}
+                      />
                     </div>
                   </div>
                 </div>
@@ -119,6 +122,25 @@ const BagItem = () => {
           Go to Checkout
         </button>
       </div>
+
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      
+
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello!</h3>
+          <p className="py-4">
+            Press ESC key or click the button below to close
+          </p>
+          <div className="modal-action">
+            <form method="dialog ">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn mr-4" onClick={() => handleRemove()}>Delete</button>
+              <button className="btn">Close</button>- 
+            </form>
+          </div>
+        </div>
+      </dialog>
     </section>
   );
 };

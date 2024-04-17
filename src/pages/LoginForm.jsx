@@ -32,7 +32,7 @@ const LoginForm = () => {
             {/* divided */}
             <Link
               className=" mx-auto bg-gray-100 rounded-full text-[#6246EA] font-semibold py-3 px-7"
-              to="../register"
+              to="/Aquaharmony/register"
             >
               Sign up
             </Link>

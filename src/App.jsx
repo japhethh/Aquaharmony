@@ -18,15 +18,15 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/Aquaharmony/" element={<Home />} />
+          <Route path="/Aquaharmony/Home" element={<Home />} />
           <Route path="Aquaharmony/about" element={<About />} />
           <Route path="Aquaharmony/products" element={<Products />} />
           <Route path="Aquaharmony/products/:productId" element={<SingleProduct />} />
           <Route path="Aquaharmony/posts" element={<Post />} />
           <Route path="Aquaharmony/cart" element={<BagItem />} />
           <Route path="*" element={<Error />} />
-          <Route path="login" element={<LoginForm />} />
-          <Route path="register" element={<RegisterForm />} />
+          <Route path="/Aquaharmony/login" element={<LoginForm />} />
+          <Route path="/Aquaharmony/register" element={<RegisterForm />} />
         </Routes>
 
         <section>

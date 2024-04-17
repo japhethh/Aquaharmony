@@ -15,7 +15,7 @@ const Home = () => {
         
         {/* Body */}
         <div className="w-full text-center py-10  flex flex-col cursor-pointer">
-          <Link to="products" >
+          <Link to="/Aquaharmony/products" >
           <h1 className="text-lg ">Feel the unreal</h1>
           <h1 className="text-[50px] font-extrabold">Aqua Harmony</h1>
           <h1 className="text-lg py-4">The next generation of Shower technology is here</h1>
