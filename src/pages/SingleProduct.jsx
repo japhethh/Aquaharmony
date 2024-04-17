@@ -27,8 +27,8 @@ const SingleProduct = () => {
     localStorage.setItem("cart", JSON.stringify(newData));
     setData(newData);
 
-    window.location.reload();
-    // navigate("/Aquaharmony/products");
+    // window.location.reload();
+    navigate(-1);
   };
 
   const { name, price, image, detail, category } = retrieveProduct;
