@@ -77,8 +77,8 @@ const BagItem = () => {
                     </div>
 
                     <div className="flex justify-start gap-4 items-start py-5 ">
-                      <IoIosHeartEmpty className="text-2xl"  />
-                      <IoTrashOutline className="text-2xl" onClick={() => handleRemove(index)} />
+                      <IoIosHeartEmpty className="text-2xl cursor-pointer"  />
+                      <IoTrashOutline className="text-2xl cursor-pointer" onClick={() => handleRemove(index)} />
                     </div>
                   </div>
                 </div>
