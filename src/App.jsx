@@ -18,19 +18,19 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="products" element={<Products />} />
-          <Route path="products/:productId" element={<SingleProduct />} />
-          <Route path="posts" element={<Post />} />
-          <Route path="cart" element={<BagItem/>} /> 
+          <Route path="/Aquaharmony/" element={<Home />} />
+          <Route path="Aquaharmony/about" element={<About />} />
+          <Route path="Aquaharmony/products" element={<Products />} />
+          <Route path="Aquaharmony/products/:productId" element={<SingleProduct />} />
+          <Route path="Aquaharmony/posts" element={<Post />} />
+          <Route path="Aquaharmony/cart" element={<BagItem />} />
           <Route path="*" element={<Error />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegisterForm />} />
+          <Route path="login" element={<LoginForm />} />
+          <Route path="register" element={<RegisterForm />} />
         </Routes>
-        
+
         <section>
-        <Testimonials />
+          <Testimonials />
         </section>
         <Footer />
       </BrowserRouter>

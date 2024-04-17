@@ -37,11 +37,11 @@ const Products = ({ heading }) => {
       </div>
       <div className=" content bg-white">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
-          {PRODUCTS.map((product) => (
-            <div key={product.id}>
+          {PRODUCTS.map((product,index) => (
+            <div key={index}>
               
               <Link
-                to={`/products/${product.id}`}
+                to={`/Aquaharmony/products/${product.id}`}
                 className="product flex flex-col shadow-xl rounded-lg border-[1px] border-slate-200"
               >
                 <div className="product_image h-[200px]  flex  text-center bg-gray-200">

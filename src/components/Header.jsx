@@ -36,7 +36,7 @@ const Header = () => {
             <div className="hidden md:block">
               <div className="nav nav-pills py-4 flex justify-between items-center gap-6 leading-6 text-lg">
                 <NavLink
-                  to="/"
+                  to="/Aquaharmony/"
                   className={(navData) =>
                     navData.isActive
                       ? " border-b-[2px] border-black py-4"
@@ -46,7 +46,7 @@ const Header = () => {
                   Home
                 </NavLink>
                 <NavLink
-                  to="about"
+                  to="/Aquaharmony/about"
                   className={(navData) =>
                     navData.isActive
                       ? " border-b-[2px] border-black py-4"
@@ -56,7 +56,7 @@ const Header = () => {
                   About
                 </NavLink>
                 <NavLink
-                  to="products"
+                  to="/Aquaharmony/products"
                   className={(navData) =>
                     navData.isActive
                       ? " border-b-[2px] border-black py-4"
@@ -84,7 +84,7 @@ const Header = () => {
             </div>
             <div className="md:block hidden z-50 ">
               <NavLink
-                to="favorites"
+                to="/Aquaharmony/favorites"
                 className={(navData) =>
                   navData.isActive ? "text-[#6246ea]" : ""
                 }
@@ -97,7 +97,7 @@ const Header = () => {
                 className={(navData) =>
                   navData.isActive ? "text-[#6246ea]" : ""
                 }
-                to="cart"
+                to="/Aquaharmony/cart"
               >
                 <i className="fa-solid fa-bag-shopping text-xl h-10 w-10 flex justify-center items-center p-3 hover:bg-slate-100 rounded-full"></i>
               </NavLink>
@@ -106,7 +106,7 @@ const Header = () => {
               </div>
             </div>
             <NavLink
-              to="login"
+              to="/Aquaharmony/login"
               className={(navData) =>
                 navData.isActive ? "text-[#6246ea]" : ""
               }
@@ -127,7 +127,7 @@ const Header = () => {
       <div className="flex absolute top-0 left-0 w-full leading-6 text-lg">
         <div className={menuClasses}>
           <NavLink
-            to="/"
+            to="/Aquaharmony/"
             className={(navData) =>
               navData.isActive ? "text-[#6246ea]" : "text-white"
             }
@@ -136,7 +136,7 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink
-            to="about"
+            to="/Aquaharmony/about"
             className={(navData) =>
               navData.isActive ? "text-[#6246ea]" : "text-white"
             }
@@ -145,7 +145,7 @@ const Header = () => {
             About
           </NavLink>
           <NavLink
-            to="products"
+            to="/Aquaharmony/products"
             className={(navData) =>
               navData.isActive ? "text-[#6246ea]" : "text-white"
             }

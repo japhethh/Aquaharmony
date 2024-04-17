@@ -26,6 +26,9 @@ const SingleProduct = () => {
     const newData = [...data, retrieveProduct];
     localStorage.setItem("cart", JSON.stringify(newData));
     setData(newData);
+
+    window.location.reload();
+    navigate("/Aquaharmony//products");
   };
 
   const { name, price, image, detail, category } = retrieveProduct;
@@ -111,21 +114,25 @@ const SingleProduct = () => {
           <h1 className="text-md">{category}</h1>
           <h1 className="text-lg py-4 text-[#6246ea]">₱{price}</h1>
         </div>
+
         <div>
           <img src={image} className="mb-5" alt={name} />
         </div>
-        <div className="flex flex-col gap-4 px-4">
+
+        <div className="flex flex-col gap-4 px-4 cursor-pointer" >
           <button
             className="rounded-full w-full mx-auto py-4 px-7 text-white bg-[#6246ea] text-lg hover:opacity-80"
             onClick={() => navigate(-1)}
           >
             Add Bag
           </button>
+
           <button className="rounded-full w-full mx-auto py-4 px-7 bg-white border-[2px] border-violet-200 text-[#6246ea] text-lg flex gap-2 justify-center items-center hover:border-[#6246ea]">
             <span>Favorite</span>
             <i className="fa-regular fa-heart"></i>
           </button>
         </div>
+        
         <div className="py-8">
           <p className="text-md text-[#111111]">{detail}</p>
         </div>

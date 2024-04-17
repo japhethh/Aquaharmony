@@ -7,16 +7,19 @@ const BagItem = () => {
   const [parsedData, setParsedData] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-  const shippingThreshold = 30; // Example threshold for free shipping
+  const shippingThreshold = 30;
+
 
   useEffect(() => {
     const results = localStorage.getItem("cart");
     const parsedDatas = JSON.parse(results);
     setParsedData(parsedDatas || []);
-  }, []);
+  },[]);
 
+  // UseEffect
   useEffect(() => {
     let subTotal = 0;
+    // Iterating loop
     parsedData.forEach((item) => {
       subTotal += parseFloat(item.price);
     });
@@ -32,15 +35,26 @@ const BagItem = () => {
       setTotal(subTotal);
     }
   }, [parsedData]);
+  // end useEffect
+
+
+
+  const handleRemove = (index) => {
+    const updatedCart = parsedData.filter((_,i) => i !== index)
+    console.log(updatedCart)
+    setParsedData(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); 
+    window.location.reload();
+}
 
   return (
     <section className="container leading-loose text-[#111111]">
       <div className="md:block hidden px-5">
         <div className="flex  min-h-screen gap-4 ">
           {/* Looping */}
-          <div className="w-2/3 flex-1 overflow-y-scroll h-[500px]">
-            {parsedData.map((item) => (
-              <div key={item}>
+          <div className="w-2/3 flex-1 overflow-y-scroll h-[500px] cursor-pointer ">
+            {parsedData.map((item,index) => (
+              <div key={index}>
                 <h2>{item.category}</h2>
 
                 <div className="card-bag flex gap-4 border-b-[1px] border-gray-200 py-7">
@@ -63,8 +77,8 @@ const BagItem = () => {
                     </div>
 
                     <div className="flex justify-start gap-4 items-start py-5 ">
-                      <IoIosHeartEmpty className="text-2xl"/>
-                      <IoTrashOutline  className="text-2xl"/>
+                      <IoIosHeartEmpty className="text-2xl"  />
+                      <IoTrashOutline className="text-2xl" onClick={() => handleRemove(index)} />
                     </div>
                   </div>
                 </div>
