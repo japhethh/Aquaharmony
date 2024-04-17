@@ -68,6 +68,7 @@ const Header = () => {
               </div>
             </div>
           </div>
+
           <div className="flex justify-between items-center gap-4 cursor-pointer ">
             <div className="flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 pr-2 max-md:w-[120px] md:w-[200px] ">
               <i
@@ -124,10 +125,14 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+
+
+      {/* Mobile Responsive */}
       <div className="flex absolute top-0 left-0 w-full leading-6 text-lg">
         <div className={menuClasses}>
           <NavLink
-            to="/Aquaharmony/"
+            to="/Aquaharmony/home"
             className={(navData) =>
               navData.isActive ? "text-[#6246ea]" : "text-white"
             }

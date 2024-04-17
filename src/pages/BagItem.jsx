@@ -38,8 +38,8 @@ const BagItem = () => {
     const updatedCart = parsedData.filter((_, i) => i !== stateRemove);
     console.log(updatedCart);
     setParsedData(updatedCart);
-    window.location.reload();
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    // window.location.reload();
   };
 
   const handleItemRemove = (index) => {
@@ -49,18 +49,18 @@ const BagItem = () => {
 
   return (
     <section className="container leading-loose text-[#111111]">
-      <div className="md:block hidden px-5">
-        <div className="flex  min-h-screen gap-4 ">
+      <div className="md:block  px-3">
+        <div className="flex max-md:flex-col-reverse  w-full min-h-screen gap-4 ">
           {/* Looping */}
-          <div className="w-2/3 flex-1 overflow-y-scroll h-[500px] cursor-pointer ">
+          <div className="md:w-2/3 w-3/3  flex-1 overflow-y-scroll h-[500px] cursor-pointer ">
             {parsedData.map((item, index) => (
               <div key={index}>
                 <h2>{item.category}</h2>
 
                 <div className="card-bag flex gap-4 border-b-[1px] border-gray-200 py-7">
-                  <div className="card-image  ">
+                  <div className="card-image ">
                     <img
-                      className="w-[200px] h-auto object-contain"
+                      className="w-[100px] max-w-[200px] h-auto object-contain"
                       src={item.image}
                       alt=""
                     />
@@ -113,10 +113,6 @@ const BagItem = () => {
         </div>
       </div>
 
-      {/* Mobile */}
-      <div className="px-5 max-md:block hidden">{/* Mobile content */}</div>
-      {/* end */}
-
       <div className="max-md:block hidden fixed left-0 w-full bottom-0 py-5 px-4 border-t-[1px] bg-white border-slate-300  ">
         <button className="w-full bg-[#6246ea] text-white mx-auto py-3 px-4 rounded-full font-semibold">
           Go to Checkout
@@ -135,12 +131,16 @@ const BagItem = () => {
           <div className="modal-action">
             <form method="dialog ">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn mr-4" onClick={() => handleRemove()}>Delete</button>
+              <button className="btn mr-4" onClick={handleRemove}>Delete</button>
               <button className="btn">Close</button>- 
             </form>
           </div>
         </div>
       </dialog>
+
+      {/* Mobile Responsive */}
+    
+  
     </section>
   );
 };
