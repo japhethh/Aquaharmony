@@ -9,14 +9,13 @@ const BagItem = () => {
   const [total, setTotal] = useState(0);
   const [stateRemove,setStateRemove] = useState(-1);
   const shippingThreshold = 30;
-  const [increment, setIncrement] = useState(0);
-  const [decrement, setDecrement] = useState(0);
+ 
 
   useEffect(() => {
     const results = localStorage.getItem("cart");
     const parsedDatas = JSON.parse(results);
     setParsedData(parsedDatas || []);
-  }, []);
+  },[]);
 
   // UseEffect
   useEffect(() => {
@@ -32,28 +31,47 @@ const BagItem = () => {
     } else {
       setTotal(subTotal);
     }
+
+    
   }, [parsedData]);
   // end useEffect
 
 
 
   const handleRemove = () => {
-    const updatedCart = parsedData.filter((_, i) => i !== stateRemove);
-    console.log(updatedCart);
+    const prevData = [...parsedData]
+    const updatedCart = prevData.filter((_, i) => i !== stateRemove);
     setParsedData(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    // window.location.reload();
+    window.location.reload()
   };
 
   const handleItemRemove = (index) => {
-    document.getElementById("my_modal_1").showModal()
+    document.getElementById('my_modal_1').showModal()
     setStateRemove(index)
+
   };
 
 
 
   return (
     <section className="container leading-loose text-[#111111]">
+      
+     
+<dialog id="my_modal_1" className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click the button below to close</p>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn" onClick={handleRemove}>Yes</button>
+        <button className="btn">No</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
       <div className="md:block  px-3">
         <div className="flex max-md:flex-col-reverse  w-full min-h-screen gap-4 ">
           {/* Looping */}
@@ -134,21 +152,8 @@ const BagItem = () => {
       {/* Open the modal using document.getElementById('ID').showModal() method */}
       
 
-      <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
-          <div className="modal-action">
-            <form method="dialog ">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn mr-4" onClick={handleRemove}>Delete</button>
-              <button className="btn">Close</button>- 
-            </form>
-          </div>
-        </div>
-      </dialog>
+
+    
 
       {/* Mobile Responsive */}
     
