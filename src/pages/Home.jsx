@@ -4,11 +4,14 @@ import homemain from '../images/homemain.jpg';
 import HomeGirl from '../images/HomeGirl.jpg';
 import HomeMainGirl from '../images/HomeMainGirl.jpg';
 import Products from "./Products.jsx";
+import Header from '../components/Header.jsx'
 
 
 const Home = () => {
   return (
+    <>
     <main className="bg-white min-h-screen container">
+      
       <div className="md:px-6 px-5">
         <img className=" rounded-xl " src={homemain} alt="" />
       </div>
@@ -25,6 +28,7 @@ const Home = () => {
     
       <Products heading="Latest"/>
     </main>
+    </>
   );
 };
 

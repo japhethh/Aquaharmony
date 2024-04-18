@@ -3,61 +3,45 @@ import formatCurrency from "../utilities/formatCurrency";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoTrashOutline } from "react-icons/io5";
 
+
 const BagItem = () => {
-  const [parsedData, setParsedData] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-  const [stateRemove,setStateRemove] = useState(-1);
+  const [parsedData, setParsedData] = useState([]);
+  const [stateRemove, setStateRemove] = useState(-1);
   const shippingThreshold = 30;
- 
 
   useEffect(() => {
     const results = localStorage.getItem("cart");
     const parsedDatas = JSON.parse(results);
     setParsedData(parsedDatas || []);
-  },[]);
+  }, []);
 
-  // UseEffect
   useEffect(() => {
     let subTotal = 0;
-    parsedData.forEach((item) => {
+    parsedData.forEach(item => {
       subTotal += parseFloat(item.price);
     });
     setSubtotal(subTotal);
-    setTotal(subTotal);
-
-    if (subTotal >= shippingThreshold) {
-      setTotal(subTotal);
-    } else {
-      setTotal(subTotal);
-    }
-
-    
-  }, [parsedData]);
-  // end useEffect
-
-
+    const newTotal = subTotal + (subTotal >= shippingThreshold ? 0 : shippingThreshold);
+    setTotal(newTotal);
+  }, [parsedData, shippingThreshold]);
 
   const handleRemove = () => {
-    const prevData = [...parsedData]
-    const updatedCart = prevData.filter((_, i) => i !== stateRemove);
+    const updatedCart = parsedData.filter((_, i) => i !== stateRemove);
     setParsedData(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    window.location.reload()
+    document.getElementById('my_modal_1').close();
   };
 
   const handleItemRemove = (index) => {
-    document.getElementById('my_modal_1').showModal()
-    setStateRemove(index)
-
+    setStateRemove(index);
+    document.getElementById('my_modal_1').showModal();
   };
-
-
 
   return (
     <section className="container leading-loose text-[#111111]">
-      
-     
+   
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     <h3 className="font-bold text-lg">Hello!</h3>
@@ -65,7 +49,7 @@ const BagItem = () => {
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
-        <button className="btn" onClick={handleRemove}>Yes</button>
+        <button className="btn mr-4" onClick={handleRemove}>Yes</button>
         <button className="btn">No</button>
       </form>
     </div>

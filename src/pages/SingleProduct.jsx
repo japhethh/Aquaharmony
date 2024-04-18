@@ -27,7 +27,7 @@ const SingleProduct = () => {
     localStorage.setItem("cart", JSON.stringify(newData));
     setData(newData);
 
-    window.location.reload();
+    // window.location.reload();
     // navigate();
   };
 

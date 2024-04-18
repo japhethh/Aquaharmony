@@ -15,7 +15,7 @@ import BagItem from "./pages/BagItem.jsx";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter> 
         <Header />
         <Routes>
           <Route path="/Aquaharmony/Home" element={<Home />} />
