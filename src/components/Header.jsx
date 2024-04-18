@@ -23,7 +23,7 @@ const Header = () => {
   } flex-col items-center gap-4 p-4 absolute bg-[#0d0d0d] z-10 transition-transform duration-1000 w-full`;
 
   return (
-    <header className="bg-[#FFFFFF] relative w-full py-3 px-3 sm:py-8 ">
+    <header className="bg-[#FFFFFF] relative w-full py-2 px-3 sm:py-8 shadow-md">
       <div className="container">
         <div className="flex justify-between items-center bg-[#FFFFFF] text-[#111111] font-normal">
           <div className="logo">
@@ -34,7 +34,7 @@ const Header = () => {
           </div>
           <div>
             <div className="hidden md:block">
-              <div className="nav nav-pills py-4 flex justify-between items-center gap-6 leading-6 text-lg">
+              <div className="nav nav-pills py-2 flex justify-between items-center gap-6 leading-6 text-lg">
                 <NavLink
                   to="/Aquaharmony/home"
                   className={(navData) =>
@@ -70,20 +70,24 @@ const Header = () => {
           </div>
 
           <div className="flex justify-between items-center gap-4 cursor-pointer ">
-            <div className="flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 pr-2 max-md:w-[120px] md:w-[200px] ">
+            <div className="flex items-center relative">
+            <div className={`flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 pr-2 max-md:w-[130px] max-md:rounded-md md:w-[200px]`}>
               <i
                 className="fa-solid fa-magnifying-glass w-5 h-5 max-md:p-5 text-lg rounded-full flex justify-center items-center"
-                onClick={() => setOpenSearch(true)}
+                
               ></i>
               <input
-                className={`px-1 outline-none bg-transparent text-lg w-full ${
-                  openSearch ? "block" : "hidden"
-                }`}
+                className={`px-1 outline-none bg-transparent text-lg w-full`}
                 type="text"
                 placeholder="Search"
               />
             </div>
-            <div className="md:block hidden z-50 ">
+            <div className="absolute md:hidden block top-0 " >
+
+            </div>
+            </div>
+
+            <div className="md:block z-50 ">
               <NavLink
                 to="/Aquaharmony/favorites"
                 className={(navData) =>
@@ -93,6 +97,7 @@ const Header = () => {
                 <i className="fa-regular fa-heart text-xl h-10 w-10 flex justify-center items-center p-3 hover:bg-slate-100 rounded-full"></i>
               </NavLink>
             </div>
+
             <div className="md:block z-10 relative">
               <NavLink
                 className={(navData) =>

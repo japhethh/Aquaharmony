@@ -7,28 +7,25 @@ const SingleProduct = () => {
   const { productId } = useParams();
   const [data, setData] = useState([]);
   
-  // Get the product
   const retrieveProduct = PRODUCTS.find(
     (product) => product.id === parseInt(productId)
   );
 
-  // Fetch data from localStorage on component mount
   useEffect(() => {
     const datas = localStorage.getItem("cart");
-
     if (datas) {
       setData(JSON.parse(datas));
     }
   }, []);
 
-  // Handle adding product to the cart
+  
+
   const handleData = () => {
     const newData = [...data, retrieveProduct];
     localStorage.setItem("cart", JSON.stringify(newData));
+    window.location.reload()
     setData(newData);
 
-    // window.location.reload();
-    // navigate();
   };
 
   const { name, price, image, detail, category } = retrieveProduct;

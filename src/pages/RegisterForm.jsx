@@ -23,7 +23,7 @@ const RegisterForm = () => {
                         Already have an account?
                       </p>
                       <NavLink
-                        className="text-xm font-bold text-[#6246ea] cursor-pointer"
+                        className="text-xm font-bold text-[#111111] cursor-pointer"
                         to="../login"
                       >
                         Log in
@@ -32,7 +32,7 @@ const RegisterForm = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full rounded-lg mt-1 py-3 px-3 text-md bg-[#E8F0FE] outline-[#6246ea]"
+                      className="w-full rounded-lg mt-1 py-3 px-3 text-md bg-[#E8F0FE] outline-[#111111]"
                       type="email" placeholder="Enter Email"
                     />
                   </div>
@@ -49,7 +49,7 @@ const RegisterForm = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full rounded-lg mt-1 py-3 px-3 text-md bg-[#E8F0FE] outline-[#6246ea]"
+                      className="w-full rounded-lg mt-1 py-3 px-3 text-md bg-[#E8F0FE] outline-[#111111]"
                       type="password"  placeholder="Enter Password"
                     />
                   </div>
@@ -67,7 +67,7 @@ const RegisterForm = () => {
                   </label>
                 </div>
 
-                <button className="w-full py-3 px-3 bg-[#6246ea] text-white rounded-full">
+                <button className="w-full py-3 px-3 bg-[#111111] text-white rounded-full">
                   Sign up
                 </button>
 

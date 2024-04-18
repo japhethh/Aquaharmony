@@ -11,6 +11,7 @@ import Testimonials from "./components/Testimonials.jsx";
 import LoginForm from "./pages/LoginForm.jsx";
 import RegisterForm from "./pages/RegisterForm.jsx";
 import BagItem from "./pages/BagItem.jsx";
+import {StickyScrollRevealDemo} from './pages/Abouts.jsx'
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/Aquaharmony/Home" element={<Home />} />
-          <Route path="Aquaharmony/about" element={<About />} />
+          <Route path="Aquaharmony/about" element={<StickyScrollRevealDemo />} />
           <Route path="Aquaharmony/products" element={<Products />} />
           <Route path="Aquaharmony/products/:productId" element={<SingleProduct />} />
           <Route path="Aquaharmony/posts" element={<Post />} />

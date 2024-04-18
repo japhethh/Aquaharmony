@@ -32,6 +32,7 @@ const BagItem = () => {
     setParsedData(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     document.getElementById('my_modal_1').close();
+    window.location.reload()
   };
 
   const handleItemRemove = (index) => {
@@ -45,7 +46,7 @@ const BagItem = () => {
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4">Press ESC key or click the button below to closes</p>
+    <p className="py-4">Are you sure you want to remove this?</p>
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
@@ -56,11 +57,11 @@ const BagItem = () => {
   </div>
 </dialog>
 
-      <div className="md:block  px-3">
+      <div className="md:block  px-3 py-3">
         <div className="flex max-md:flex-col-reverse  w-full min-h-screen gap-4 ">
           {/* Looping */}
           <div className="md:w-2/3 w-3/3  flex-1 overflow-y-scroll h-[500px] cursor-pointer ">
-            {parsedData.map((item, index) => (
+            {parsedData.length > 0 ? (parsedData.map((item, index) => (
               <div key={index}>
                 <h2>{item.category}</h2>
 
@@ -99,12 +100,17 @@ const BagItem = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))) : (
+              <div className="flex justify-center items-center h-60">
+                <h1 className="text-xl font-bold ">No Record</h1>
+              </div>
+            )}
+            {}
             {/* end */}
 
           </div>
 
-          <div className="w-1/3 flex-1">
+          <div className=" md:w-2/3 w-3/3 flex-1">
             <h2>Summary</h2>
             <div className="flex flex-col gap-2">
               <div className="flex justify-between">

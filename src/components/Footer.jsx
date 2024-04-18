@@ -13,7 +13,7 @@ const Footer = () => {
         </a>
       </div>
       <p className="text-sm font-bold text-gray-500">Design by Adrey Locaylocay</p>
-      <p className="text-sm text-gray-500"> <i class="fa-regular fa-copyright"></i> 2024 Aqua Harmony. All rights reserved</p>
+      <p className="text-sm text-gray-500 flex justify-center items-center" ><i class="fa-regular fa-copyright"></i>2024 Aqua Harmony. All rights reserved</p>
     </footer>
   );
 };

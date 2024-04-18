@@ -20,18 +20,18 @@ const LoginForm = () => {
               />
               <label className="font-semibold">Password</label>
               <input
-                className="py-4 px-4 bg-slate-100 rounded-lg outline-[#6246EA] text-md"
+                className="py-4 px-4 bg-slate-100 rounded-lg outline-[#111111] text-md"
                 type="password"
                 placeholder="Enter your Password"
               />
             </div>
-            <button className="w-full bg-[#6246EA] py-3 rounded-full text-white font-bold">
+            <button className="w-full bg-[#111111] py-3 rounded-full text-white font-bold">
               Login
             </button>
             <p>Forgot Password?</p>
             {/* divided */}
             <Link
-              className=" mx-auto bg-gray-100 rounded-full text-[#6246EA] font-semibold py-3 px-7"
+              className=" mx-auto bg-gray-100 rounded-full text-[#white] font-semibold py-3 px-7"
               to="/Aquaharmony/register"
             >
               Sign up
