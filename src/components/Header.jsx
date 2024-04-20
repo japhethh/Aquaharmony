@@ -2,20 +2,36 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import IconLogo from "../images/iconlogo.jpeg";
 
+
 const Header = () => {
   const [menu, setMenu] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [countAdd, setCountAdd] = useState(0);
+  const [isSticky , setIsSticky] = useState(false);
+
+
+  
 
   useEffect(() => {
-    // Retrieve cart items from localStorage
     const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
-    
-    // Calculate total count of items in the cart
     const totalCount = cartItems.length;
     console.log(totalCount)
-    // Set the total count in state
     setCountAdd(totalCount);
+
+    const handleScrollY = () => {
+      if(window.scrollY > 400){
+        setIsSticky(true)
+      }
+      else{
+        setIsSticky(false);
+      }
+    }
+
+
+    window.addEventListener("scroll", handleScrollY);
+    return () => {
+      window.addEventListener("scroll", handleScrollY);
+    }
   }, []);
 
   const menuClasses = `md:hidden ${
@@ -23,7 +39,7 @@ const Header = () => {
   } flex-col items-center gap-4 p-4 absolute bg-[#0d0d0d] z-10 transition-transform duration-1000 w-full`;
 
   return (
-    <header className="bg-[#FFFFFF] relative w-full py-2 px-3 sm:py-8 shadow-md">
+    <header className={`${isSticky ? "sticky top-0  " : ""}  bg-[#FFFFFF] z-50 w-full py-2 px-3 md:py-6 shadow-md `}>
       <div className="container">
         <div className="flex justify-between items-center bg-[#FFFFFF] text-[#111111] font-normal">
           <div className="logo">
@@ -71,7 +87,7 @@ const Header = () => {
 
           <div className="flex justify-between items-center gap-4 cursor-pointer ">
             <div className="flex items-center relative">
-            <div className={`flex flex-row rounded-full md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 pr-2 max-md:w-[130px] max-md:rounded-md md:w-[200px]`}>
+            <div className={`flex flex-row rounded-full max-md:rounded-md md:px-3 md:gap-3 items-center hover:bg-gray-200 bg-gray-100 md:py-2 pr-2 max-md:w-[130px]  md:w-[200px]`}>
               <i
                 className="fa-solid fa-magnifying-glass w-5 h-5 max-md:p-5 text-lg rounded-full flex justify-center items-center"
                 
@@ -82,12 +98,10 @@ const Header = () => {
                 placeholder="Search"
               />
             </div>
-            <div className="absolute md:hidden block top-0 " >
-
-            </div>
+            
             </div>
 
-            <div className="md:block z-50 ">
+            <div className="md:block z-10 ">
               <NavLink
                 to="/Aquaharmony/favorites"
                 className={(navData) =>

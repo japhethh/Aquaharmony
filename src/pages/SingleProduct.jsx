@@ -1,39 +1,56 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { PRODUCTS } from "../data.jsx";
+import formatCurrency from "../utilities/formatCurrency.jsx";
 
 const SingleProduct = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
   const [data, setData] = useState([]);
-  
+  const [notifAlert, setNotifAlert] = useState(false);
+  const [isActive, setIsActive] = useState(false)
+
   const retrieveProduct = PRODUCTS.find(
     (product) => product.id === parseInt(productId)
   );
+
+ 
 
   useEffect(() => {
     const datas = localStorage.getItem("cart");
     if (datas) {
       setData(JSON.parse(datas));
     }
-  }, []);
-
-  
+    setInterval(() => {
+      setNotifAlert(false);
+      
+    },5000); 
+   
+  }, [notifAlert]);
 
   const handleData = () => {
     const newData = [...data, retrieveProduct];
     localStorage.setItem("cart", JSON.stringify(newData));
-    window.location.reload()
+    setNotifAlert(true);
+    setIsActive(true);
     setData(newData);
-
+    window.location.reload()
+    
   };
+
 
   const { name, price, image, detail, category } = retrieveProduct;
 
   return (
     <main>
-      
       <div className="bg-white min-h-screen leading-relaxed px-5 relative">
+        <div
+          className={`${
+            notifAlert ? "block" : "hidden"
+          } fixed top-30 alert ${isActive ? "animate" : ""} right-20 z-50 w-auto h-10 px-3 py-4 flex justify-center items-center font-semibold text-white bg-green-600 rounded-full `}
+        >
+          <h1>Adding cart Succesfully</h1>
+        </div>
         <div className="md:block hidden">
           <div className="pg-header">
             <div className="container flex flex-col-reverse md:flex-row">
@@ -82,7 +99,7 @@ const SingleProduct = () => {
                   </h2>
                   <p className="text-black font-medium">{category}</p>
                   <p className="price mb-6 text-[#111111] pt-1 text-lg">
-                    ₱{price}
+                    {formatCurrency(price)}
                   </p>
                 </div>
 
