@@ -1,9 +1,14 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import { PRODUCTS } from "../data.jsx";
 import formatCurrency from "../utilities/formatCurrency.jsx";
+import {StoreContext} from '../Context/StoreContext.jsx'
+import { toast } from 'react-toastify';
+
 
 const SingleProduct = () => {
+
+ const {setItems,items } = useContext(StoreContext);
   const navigate = useNavigate();
   const { productId } = useParams();
   const [data, setData] = useState([]);
@@ -31,11 +36,12 @@ const SingleProduct = () => {
   const handleData = () => {
     const newData = [...data, retrieveProduct];
     localStorage.setItem("cart", JSON.stringify(newData));
+    setItems(newData)
     setNotifAlert(true);
     setIsActive(true);
     setData(newData);
-    window.location.reload()
-    
+    toast.success("Added Successfully")
+
   };
 
 
@@ -44,11 +50,10 @@ const SingleProduct = () => {
   return (
     <main>
       <div className="bg-white min-h-screen leading-relaxed px-5 relative">
-        <div
-          className={`${
+        <div>
+         {/* className={`${
             notifAlert ? "block" : "hidden"
-          } fixed top-30 alert ${isActive ? "animate" : ""} right-20 z-50 w-auto h-10 px-3 py-4 flex justify-center items-center font-semibold text-white bg-green-600 rounded-full `}
-        >
+          } fixed top-30 alert ${isActive ? "animate" : ""} right-20 z-50 w-auto h-10 px-3 py-4 flex justify-center items-center font-semibold text-white bg-green-600 rounded-full `}  */}
           <h1>Adding cart Succesfully</h1>
         </div>
         <div className="md:block hidden">

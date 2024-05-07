@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import formatCurrency from "../utilities/formatCurrency";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoTrashOutline } from "react-icons/io5";
-
+import {StoreContext} from '../Context/StoreContext'
+import {toast} from 'react-toastify';
 const BagItem = () => {
+  const {setItems, items} = useContext(StoreContext);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
   const [parsedData, setParsedData] = useState([]);
@@ -14,11 +16,13 @@ const BagItem = () => {
   const [incrementBtn, setIncrementBtn] = useState(0);
   const [decrementBtn, setDecrementBtn] = useState(0);
   const [container, setContainer] = useState(-1)
+  
 
   useEffect(() => {
     const results = localStorage.getItem("cart");
     const parsedDatas = JSON.parse(results);
     setParsedData(parsedDatas || []);
+    setItems(parsedDatas)
   }, [quantityItem]);
 
   useEffect(() => {
@@ -40,8 +44,10 @@ const BagItem = () => {
     const updatedCart = parsedData.filter((_, i) => i !== stateRemove);
     setParsedData(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setItems(updatedCart)
     document.getElementById("my_modal_1").close();
     setDeleteItem(true);
+    toast.error("Deleted Successfully")
     // window.location.reload();
   };
 
@@ -82,11 +88,11 @@ const BagItem = () => {
         </div>
       </dialog>
 
-      <div className={`relative ${deleteItem ? "block": "hidden"}`}>
+      {/* <div className={`relative ${deleteItem ? "block": "hidden"}`}>
         <div className="fixed px-4 bg-red-500 right-20 top-32 text-white font-semibold rounded-full py-2">
         <h1>Deleted Successfully</h1>
         </div>
-      </div>
+      </div> */}
 
       <div className="md:block  px-3 py-3">
         <div className="flex max-md:flex-col-reverse  w-full min-h-screen gap-4 ">

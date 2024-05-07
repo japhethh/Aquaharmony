@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import IconLogo from "../images/iconlogo.jpeg";
+import {StoreContext} from '../Context/StoreContext.jsx'
 
 
 const Header = () => {
+  const {setItems, items} = useContext(StoreContext);
+
   const [menu, setMenu] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [countAdd, setCountAdd] = useState(0);
@@ -15,6 +18,7 @@ const Header = () => {
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
     const totalCount = cartItems.length;
+    setItems(cartItems);
     console.log(totalCount)
     setCountAdd(totalCount);
 
@@ -122,7 +126,9 @@ const Header = () => {
                 <i className="fa-solid fa-bag-shopping text-xl h-10 w-10 flex justify-center items-center p-3 hover:bg-slate-100 rounded-full"></i>
               </NavLink>
               <div className="absolute bottom-0 right-0 rounded-full bg-red-500 text-white flex justify-center items-center text-sm w-5 h-5">
-                <h1>{countAdd}</h1>
+                <h1>
+                  {
+                  items.length > 0 ? items.length : 0}</h1>
               </div>
             </div>
             <NavLink

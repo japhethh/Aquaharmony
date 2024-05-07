@@ -11,29 +11,40 @@ import Testimonials from "./components/Testimonials.jsx";
 import LoginForm from "./pages/LoginForm.jsx";
 import RegisterForm from "./pages/RegisterForm.jsx";
 import BagItem from "./pages/BagItem.jsx";
-import {StickyScrollRevealDemo} from './pages/Abouts.jsx'
+import { StickyScrollRevealDemo } from "./pages/Abouts.jsx";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter> 
-        <Header />
-        <Routes>
-          <Route path="/Aquaharmony/Home" element={<Home />} />
-          <Route path="Aquaharmony/about" element={<StickyScrollRevealDemo />} />
-          <Route path="Aquaharmony/products" element={<Products />} />
-          <Route path="Aquaharmony/products/:productId" element={<SingleProduct />} />
-          <Route path="Aquaharmony/posts" element={<Post />} />
-          <Route path="Aquaharmony/cart" element={<BagItem />} />
-          <Route path="*" element={<Error />} />
-          <Route path="/Aquaharmony/login" element={<LoginForm />} />
-          <Route path="/Aquaharmony/register" element={<RegisterForm />} />
-        </Routes>
+      <ToastContainer/>
 
-        <section>
-          <Testimonials />
-        </section>
-        <Footer />
+      <BrowserRouter>
+          <Header />
+         
+          <Routes>
+            <Route path="/Aquaharmony/Home" element={<Home />} />
+            <Route
+              path="Aquaharmony/about"
+              element={<StickyScrollRevealDemo />}
+            />
+            <Route path="Aquaharmony/products" element={<Products />} />
+            <Route
+              path="Aquaharmony/products/:productId"
+              element={<SingleProduct />}
+            />
+            <Route path="Aquaharmony/posts" element={<Post />} />
+            <Route path="Aquaharmony/cart" element={<BagItem />} />
+            <Route path="*" element={<Error />} />
+            <Route path="/Aquaharmony/login" element={<LoginForm />} />
+            <Route path="/Aquaharmony/register" element={<RegisterForm />} />
+          </Routes>
+
+          <section>
+            <Testimonials />
+          </section>
+          <Footer />
       </BrowserRouter>
     </div>
   );
