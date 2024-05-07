@@ -50,12 +50,7 @@ const SingleProduct = () => {
   return (
     <main>
       <div className="bg-white min-h-screen leading-relaxed px-5 relative">
-        <div>
-         {/* className={`${
-            notifAlert ? "block" : "hidden"
-          } fixed top-30 alert ${isActive ? "animate" : ""} right-20 z-50 w-auto h-10 px-3 py-4 flex justify-center items-center font-semibold text-white bg-green-600 rounded-full `}  */}
-          <h1>Adding cart Succesfully</h1>
-        </div>
+        
         <div className="md:block hidden">
           <div className="pg-header">
             <div className="container flex flex-col-reverse md:flex-row">
