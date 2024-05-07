@@ -6,7 +6,7 @@ import { PRODUCTS } from "../data";
 
 const Products = ({ heading }) => {
   return (
-    <main className="bg-white leading-relaxed md:px-2 md:container">
+    <main className="bg-white leading-relaxed ">
       <div className="">
         <div className=" flex justify-between">
           <div className="container">

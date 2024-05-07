@@ -1,14 +1,12 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { PRODUCTS } from "../data.jsx";
 import formatCurrency from "../utilities/formatCurrency.jsx";
-import {StoreContext} from '../Context/StoreContext.jsx'
-import { toast } from 'react-toastify';
-
+import { StoreContext } from "../Context/StoreContext.jsx";
+import { toast } from "react-toastify";
 
 const SingleProduct = () => {
-
- const {setItems,items } = useContext(StoreContext);
+  const { setItems, items } = useContext(StoreContext);
   const navigate = useNavigate();
   const { productId } = useParams();
   const [data, setData] = useState([]);
@@ -18,8 +16,6 @@ const SingleProduct = () => {
     (product) => product.id === parseInt(productId)
   );
 
- 
-
   useEffect(() => {
     const datas = localStorage.getItem("cart");
     if (datas) {
@@ -27,28 +23,31 @@ const SingleProduct = () => {
     }
     // setInterval(() => {
     //   setNotifAlert(false);
-      
-    // },5000); 
-   
+
+    // },5000);
   }, []);
 
   const handleData = () => {
-    const newData = [...data, retrieveProduct];
-    localStorage.setItem("cart", JSON.stringify(newData));
-    setItems(newData)
-    // setIsActive(true);
-    setData(newData);
-    toast.success("Added Successfully")
 
+    const existingProduct = data.find((product) => product.id === retrieveProduct.id)
+      console.log( {"added":"addded",retrieveProduct}) 
+    if (!existingProduct) {
+      const newData = [...data, retrieveProduct];
+      localStorage.setItem("cart", JSON.stringify(newData));
+      setItems(newData);
+      // setIsActive(true);
+      setData(newData);
+      toast.success("Added Successfully");
+    } else {
+      toast.error("Added already")
+    }
   };
-
 
   const { name, price, image, detail, category } = retrieveProduct;
 
   return (
     <main>
       <div className="bg-white min-h-screen leading-relaxed px-5 relative">
-        
         <div className="md:block hidden">
           <div className="pg-header">
             <div className="container flex flex-col-reverse md:flex-row">
@@ -140,7 +139,6 @@ const SingleProduct = () => {
             >
               Add Bag
             </button>
-           
 
             <button className="rounded-full w-full mx-auto py-4 px-7 bg-white border-[2px] border-violet-200 text-[#111111] text-lg flex gap-2 justify-center items-center hover:border-[#111111]">
               <span>Favorite</span>
