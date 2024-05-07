@@ -171,7 +171,7 @@ const BagItem = () => {
                 <h1>Total</h1>
                 <h1>{formatCurrency(total)}</h1>
               </div>
-              <button className="max-w-[300px] min-w-[300px] mx-auto py-3 px-8 bg-[#111111] hover:opacity-80 rounded-full text-white font-semibold">
+              <button className="max-w-[300px] min-w-[300px] mx-auto max-md:hidden  py-3 px-8 bg-[#111111] hover:opacity-80 rounded-full text-white font-semibold">
                 Check Out
               </button>
             </div>
