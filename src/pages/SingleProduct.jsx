@@ -56,7 +56,7 @@ const SingleProduct = () => {
             <div className="container flex flex-col-reverse md:flex-row">
               <div className="">
                 {/* Second breadcrumb */}
-                <nav className="w-full rounded-md">
+                <nav className="w-full t rounded-md">
                   <ol className="list-reset flex">
                     <li>
                       <Link
