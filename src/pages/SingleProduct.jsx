@@ -12,7 +12,7 @@ const SingleProduct = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
   const [data, setData] = useState([]);
-  const [isActive, setIsActive] = useState(false)
+  // const [isActive, setIsActive] = useState(false)
 
   const retrieveProduct = PRODUCTS.find(
     (product) => product.id === parseInt(productId)
@@ -36,7 +36,7 @@ const SingleProduct = () => {
     const newData = [...data, retrieveProduct];
     localStorage.setItem("cart", JSON.stringify(newData));
     setItems(newData)
-    setIsActive(true);
+    // setIsActive(true);
     setData(newData);
     toast.success("Added Successfully")
 
@@ -136,10 +136,11 @@ const SingleProduct = () => {
           <div className="flex flex-col gap-4 px-4 cursor-pointer">
             <button
               className="rounded-full w-full mx-auto py-4 px-7 text-white bg-[#111111] text-lg hover:opacity-80"
-              onClick={() => navigate(-1)}
+              onClick={handleData}
             >
               Add Bag
             </button>
+           
 
             <button className="rounded-full w-full mx-auto py-4 px-7 bg-white border-[2px] border-violet-200 text-[#111111] text-lg flex gap-2 justify-center items-center hover:border-[#111111]">
               <span>Favorite</span>
