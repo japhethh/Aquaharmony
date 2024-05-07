@@ -12,7 +12,6 @@ const SingleProduct = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
   const [data, setData] = useState([]);
-  const [notifAlert, setNotifAlert] = useState(false);
   const [isActive, setIsActive] = useState(false)
 
   const retrieveProduct = PRODUCTS.find(
@@ -26,18 +25,17 @@ const SingleProduct = () => {
     if (datas) {
       setData(JSON.parse(datas));
     }
-    setInterval(() => {
-      setNotifAlert(false);
+    // setInterval(() => {
+    //   setNotifAlert(false);
       
-    },5000); 
+    // },5000); 
    
-  }, [notifAlert]);
+  }, []);
 
   const handleData = () => {
     const newData = [...data, retrieveProduct];
     localStorage.setItem("cart", JSON.stringify(newData));
     setItems(newData)
-    setNotifAlert(true);
     setIsActive(true);
     setData(newData);
     toast.success("Added Successfully")
